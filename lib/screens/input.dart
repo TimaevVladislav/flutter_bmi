@@ -17,17 +17,17 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Row(
             children: [
-              Expanded(child: CustomCard()),
-              Expanded(child: CustomCard())
+              Expanded(child: CustomCard(color: Color(0xFF1D1E33))),
+              Expanded(child: CustomCard(color: Color(0xFF1D1E33)))
             ],
           ),
           Row(
-            children: [Expanded(child: CustomCard())],
+            children: [Expanded(child: CustomCard(color: Color(0xFF1D1E33)))],
           ),
           Row(
             children: [
-              Expanded(child: CustomCard()),
-              Expanded(child: CustomCard())
+              Expanded(child: CustomCard(color: Color(0xFF1D1E33))),
+              Expanded(child: CustomCard(color: Color(0xFF1D1E33)))
             ],
           ),
         ],
