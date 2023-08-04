@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bmi/widgets/card.dart';
+import 'package:flutter_bmi/widgets/icon.dart';
 import 'package:flutter_bmi/store/colors.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -18,17 +20,29 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Row(
             children: [
-              Expanded(child: CustomCard(color: activeCard)),
-              Expanded(child: CustomCard(color: activeCard))
+              Expanded(
+                  child: CustomCard(
+                      color: activeCard,
+                      child: CustomIcon(
+                          icon: Icon(FontAwesomeIcons.mars, size: 80.0),
+                          title: "Male"))),
+              Expanded(
+                  child: CustomCard(
+                      color: activeCard,
+                      child: CustomIcon(
+                          icon: Icon(FontAwesomeIcons.mars, size: 80.0),
+                          title: "Female")))
             ],
           ),
           Row(
-            children: [Expanded(child: CustomCard(color: activeCard))],
+            children: [
+              Expanded(child: CustomCard(color: activeCard, child: Column()))
+            ],
           ),
           Row(
             children: [
-              Expanded(child: CustomCard(color: activeCard)),
-              Expanded(child: CustomCard(color: activeCard))
+              Expanded(child: CustomCard(color: activeCard, child: Column())),
+              Expanded(child: CustomCard(color: activeCard, child: Column()))
             ],
           ),
           Container(
