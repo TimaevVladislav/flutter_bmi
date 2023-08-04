@@ -25,13 +25,13 @@ class _InputPageState extends State<InputPage> {
                       color: activeCard,
                       child: CustomIcon(
                           icon: Icon(FontAwesomeIcons.mars, size: 80.0),
-                          title: "Male"))),
+                          title: "MALE"))),
               Expanded(
                   child: CustomCard(
                       color: activeCard,
                       child: CustomIcon(
-                          icon: Icon(FontAwesomeIcons.mars, size: 80.0),
-                          title: "Female")))
+                          icon: Icon(FontAwesomeIcons.venus, size: 80.0),
+                          title: "FEMALE")))
             ],
           ),
           Row(
