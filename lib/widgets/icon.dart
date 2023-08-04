@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const TextStyle style = TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98));
+
 class CustomIcon extends StatelessWidget {
   CustomIcon({required this.icon, required this.title});
   final Icon icon;
@@ -12,7 +14,7 @@ class CustomIcon extends StatelessWidget {
       children: <Widget>[
         icon,
         SizedBox(height: 15.0),
-        Text(title, style: TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98)))
+        Text(title, style: style)
       ],
     );
   }
