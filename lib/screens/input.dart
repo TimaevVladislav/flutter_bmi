@@ -9,7 +9,11 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
+enum Gender { male, female, gender }
+
 class _InputPageState extends State<InputPage> {
+  Gender gender = Gender.gender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +25,33 @@ class _InputPageState extends State<InputPage> {
           Row(
             children: [
               Expanded(
-                  child: CustomCard(
-                      color: activeCard,
-                      child: CustomIcon(
-                          icon: Icon(FontAwesomeIcons.mars, size: 80.0),
-                          title: "MALE"))),
+                child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        gender = Gender.male;
+                      });
+                    },
+                    child: CustomCard(
+                        color:
+                            gender == Gender.male ? activeCard : inactiveCard,
+                        child: CustomIcon(
+                            icon: Icon(FontAwesomeIcons.mars, size: 80.0),
+                            title: "MALE"))),
+              ),
               Expanded(
-                  child: CustomCard(
-                      color: activeCard,
-                      child: CustomIcon(
-                          icon: Icon(FontAwesomeIcons.venus, size: 80.0),
-                          title: "FEMALE")))
+                child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        gender = Gender.female;
+                      });
+                    },
+                    child: CustomCard(
+                        color:
+                            gender == Gender.female ? activeCard : inactiveCard,
+                        child: CustomIcon(
+                            icon: Icon(FontAwesomeIcons.venus, size: 80.0),
+                            title: "FEMALE"))),
+              )
             ],
           ),
           Row(
