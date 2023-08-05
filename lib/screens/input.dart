@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bmi/widgets/card.dart';
 import 'package:flutter_bmi/widgets/icon.dart';
 import 'package:flutter_bmi/store/colors.dart';
+import 'package:flutter_bmi/store/style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _InputPageState extends State<InputPage> {
         title: Center(child: Text('BMI CALCULATOR')),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Row(
             children: [
@@ -52,7 +54,24 @@ class _InputPageState extends State<InputPage> {
           ),
           Row(
             children: [
-              Expanded(child: CustomCard(color: activeCard, child: Column()))
+              Expanded(
+                  child: CustomCard(
+                      color: activeCard,
+                      child: CustomCard(
+                          color: activeCard,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text("HEIGHT"),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("180", style: counterTitle),
+                                  Text("cm", style: titles)
+                                ],
+                              )
+                            ],
+                          ))))
             ],
           ),
           Row(
