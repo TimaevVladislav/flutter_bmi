@@ -17,6 +17,7 @@ class _InputPageState extends State<InputPage> {
   Gender gender = Gender.gender;
   int height = 180;
   int weight = 60;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -119,10 +120,20 @@ class _InputPageState extends State<InputPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   RoundActionButton(
-                                      icon: Icon(FontAwesomeIcons.minus)),
+                                      icon: Icon(FontAwesomeIcons.minus),
+                                      pressed: () {
+                                        setState(() {
+                                          weight--;
+                                        });
+                                      }),
                                   SizedBox(width: 10.0),
                                   RoundActionButton(
-                                      icon: Icon(FontAwesomeIcons.plus))
+                                      icon: Icon(FontAwesomeIcons.plus),
+                                      pressed: () {
+                                        setState(() {
+                                          weight++;
+                                        });
+                                      })
                                 ])
                           ]))),
               Expanded(
@@ -137,17 +148,27 @@ class _InputPageState extends State<InputPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Text(weight.toString(), style: counterTitle)
+                                Text(age.toString(), style: counterTitle)
                               ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 RoundActionButton(
-                                    icon: Icon(FontAwesomeIcons.minus)),
+                                    icon: Icon(FontAwesomeIcons.minus),
+                                    pressed: () {
+                                      setState(() {
+                                        age--;
+                                      });
+                                    }),
                                 SizedBox(width: 10.0),
                                 RoundActionButton(
-                                    icon: Icon(FontAwesomeIcons.plus))
+                                    icon: Icon(FontAwesomeIcons.plus),
+                                    pressed: () {
+                                      setState(() {
+                                        age++;
+                                      });
+                                    })
                               ],
                             )
                           ])))
