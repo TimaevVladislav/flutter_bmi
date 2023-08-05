@@ -14,6 +14,7 @@ enum Gender { male, female, gender }
 
 class _InputPageState extends State<InputPage> {
   Gender gender = Gender.gender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -61,15 +62,28 @@ class _InputPageState extends State<InputPage> {
                           color: activeCard,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            textBaseline: TextBaseline.alphabetic,
                             children: <Widget>[
-                              Text("HEIGHT"),
+                              Text("HEIGHT", style: titles),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text("180", style: counterTitle),
+                                  Text(height.toString(), style: counterTitle),
                                   Text("cm", style: titles)
                                 ],
-                              )
+                              ),
+                              Slider(
+                                  value: height.toDouble(),
+                                  min: 120.0,
+                                  max: 220.0,
+                                  activeColor: bottomContainer,
+                                  inactiveColor: inactiveCard,
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      height = value.round();
+                                    });
+                                  })
                             ],
                           ))))
             ],
