@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi/widgets/button.dart';
 import 'package:flutter_bmi/widgets/card.dart';
 import 'package:flutter_bmi/widgets/icon.dart';
 import 'package:flutter_bmi/store/colors.dart';
@@ -15,6 +16,7 @@ enum Gender { male, female, gender }
 class _InputPageState extends State<InputPage> {
   Gender gender = Gender.gender;
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +99,58 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
           Row(
-            children: [
-              Expanded(child: CustomCard(color: activeCard, child: Column())),
-              Expanded(child: CustomCard(color: activeCard, child: Column()))
+            children: <Widget>[
+              Expanded(
+                  child: CustomCard(
+                      color: activeCard,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text("WEIGHT", style: titles),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(weight.toString(), style: counterTitle)
+                              ],
+                            ),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  RoundActionButton(
+                                      icon: Icon(FontAwesomeIcons.minus)),
+                                  SizedBox(width: 10.0),
+                                  RoundActionButton(
+                                      icon: Icon(FontAwesomeIcons.plus))
+                                ])
+                          ]))),
+              Expanded(
+                  child: CustomCard(
+                      color: activeCard,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text("AGE", style: titles),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(weight.toString(), style: counterTitle)
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                RoundActionButton(
+                                    icon: Icon(FontAwesomeIcons.minus)),
+                                SizedBox(width: 10.0),
+                                RoundActionButton(
+                                    icon: Icon(FontAwesomeIcons.plus))
+                              ],
+                            )
+                          ])))
             ],
           ),
           Container(
