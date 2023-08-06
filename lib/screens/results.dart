@@ -5,7 +5,14 @@ import 'package:flutter_bmi/store/style.dart';
 import 'package:flutter_bmi/widgets/card.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key});
+  ResultsScreen(
+      {required this.result,
+      required this.status,
+      required this.interpretation});
+
+  final String result;
+  final String status;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +34,14 @@ class ResultsScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Text("Normal", style: resultTitle),
-                        Text("18.3", style: bmiTitle),
-                        Text(
-                            "Your BMI result is quite low, you should eat more!",
-                            textAlign: TextAlign.center,
-                            style: answerBmiTitle),
+                        Text(status.toUpperCase(), style: resultTitle),
+                        Text(result, style: bmiTitle),
+                        Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Text(interpretation,
+                              textAlign: TextAlign.center,
+                              style: answerBmiTitle),
+                        ),
                       ],
                     )),
                 flex: 5),
