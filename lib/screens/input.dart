@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bmi/screens/results.dart';
 import 'package:flutter_bmi/widgets/button.dart';
+import 'package:flutter_bmi/widgets/brain.dart';
 import 'package:flutter_bmi/widgets/calculate.dart';
 import 'package:flutter_bmi/widgets/card.dart';
 import 'package:flutter_bmi/widgets/icon.dart';
@@ -179,8 +180,16 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
               title: "CALCULATE",
               pressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultsScreen()));
+                CalculatorBrain calculate =
+                    CalculatorBrain(height: height, weight: weight);
+
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultsScreen(
+                            result: calculate.calculateBMI(),
+                            status: calculate.getResult(),
+                            interpretation: calculate.getInterpretation())));
               })
         ],
       ),
